@@ -1,3 +1,1 @@
-alias c='g++ -Wall -Wconversion -Wfatal-errors -g -std=c++17 \
-	-fsanitize=undefined,address'
-xmodmap -e 'clear lock' -e 'keycode 66=less greater' #caps = <>
+alias c='g++ -g -Wall -Wextra -Wconversion -static -DLOCAL -O2 -std=c++17'

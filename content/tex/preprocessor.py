@@ -169,10 +169,10 @@ def processwithcomments(caption, instream, outstream, listingslang):
             out.append(r"\deftime{%s}" % ordoescape(commands["Time"]))
         if commands.get("Memory"):
             out.append(r"\defmemory{%s}" % ordoescape(commands["Memory"]))
-        if includelist:
-            out.append(r"\leftcaption{%s}" % pathescape(", ".join(includelist)))
-        if nsource:
-            out.append(r"\rightcaption{%s%d lines}" % (hsh, len(nsource.split("\n"))))
+        #if includelist:
+            #out.append(r"\leftcaption{%s}" % pathescape(", ".join(includelist)))
+        # if nsource:
+            # out.append(r"\rightcaption{%s%d lines}" % (hsh, len(nsource.split("\n"))))
         langstr = ", language="+listingslang
         out.append(r"\begin{lstlisting}[caption={%s}%s]" % (pathescape(caption), langstr))
         out.append(nsource)
@@ -185,7 +185,7 @@ def processraw(caption, instream, outstream, listingslang = 'raw'):
     try:
         source = instream.read().strip()
         addref(caption, outstream)
-        print(r"\rightcaption{%d lines}" % len(source.split("\n")), file=outstream)
+        #print(r"\rightcaption{%d lines}" % len(source.split("\n")), file=outstream)
         print(r"\begin{lstlisting}[language=%s,caption={%s}]" % (listingslang, pathescape(caption)), file=outstream)
         print(source, file=outstream)
         print(r"\end{lstlisting}", file=outstream)
